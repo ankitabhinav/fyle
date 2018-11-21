@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <title>Fyle Assignment</title>
+    <style>
+            .loader {
+              border: 16px solid #f3f3f3;
+              border-radius: 50%;
+              border-top: 16px solid #3498db;
+              width: 120px;
+              height: 120px;
+              -webkit-animation: spin 2s linear infinite; /* Safari */
+              animation: spin 2s linear infinite;
+            }
+            
+            /* Safari */
+            @-webkit-keyframes spin {
+              0% { -webkit-transform: rotate(0deg); }
+              100% { -webkit-transform: rotate(360deg); }
+            }
+            
+            @keyframes spin {
+              0% { transform: rotate(0deg); }
+              100% { transform: rotate(360deg); }
+            }
+            </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Content here -->
+        <div class="row" style="margin-top:20px;">
+
+            <div class="col col-sm-12" style="margin-bottom: 20px;">
+                <div class="form-check">
+                    <input id="type1" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Using Bank IFSC Code
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input id="type2" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Using Bank Name and City
+                    </label>
+                </div>
+            </div>
+            <div id="type1_section" class="col-sm-6">
+                <div class="form-inline">
+                    <div class="form-group mb-2">
+                        <label for="staticEmail2" class="sr-only">IFSC Code</label>
+                        <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Bank IFSC Code">
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="inputPassword2" class="sr-only">IFSC Code</label>
+                        <input type="text" id="ifsc_code" class="form-control" id="bank_ifsc_code" placeholder="IFSC Code">
+                    </div>
+                    <button id="ifsc_bank_search" class="btn btn-primary mb-2">Search</button>
+                   
+                    <div class="loader" style="margin-left: 30%; display:none;"></div>
+                </div>
+            </div>
+            <div class="col-sm-8" id="type1_section_result" style="display:none">
+                <div>
+                    <div class="form-group">
+                        <label for="type1_bank_name_result">Bank Name</label>
+                        <input type="text" id="type1_bank_name_result" class="form-control"  readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="type1_ifsc_result">IFSC</label>
+                        <input type="text" id="type1_ifsc_result" class="form-control"   readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="type1_branch_result">Branch</label>
+                        <input type="text" id="type1_branch_result" class="form-control"   readonly>
+                    </div>
+                    <div class="form-group">
+                            <label for="type1_address_result">Address</label>
+                            <textarea class="form-control" id="type1_address_result" rows="3" readonly></textarea>
+                        </div>
+                    <div class="form-group">
+                        <label for="type1_district_result">District</label>
+                        <input type="text" class="form-control" id="type1_district_result"  readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="type1_city_result">City</label>
+                        <input type="text" class="form-control" id="type1_city_result"  readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="type1_state_result">State</label>
+                        <input type="text" class="form-control" id="type1_state_result"  readonly>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="type2_section" style="display:none" class="col-sm-6">
+
+
+                <div class="form-group">
+                    <label for="type2_bank_names">Bank Name</label>
+                    <select class="form-control" id="type2_bank_names">
+                            <option value='ABHYUDAYA COOPERATIVE BANK LIMITED'>ABHYUDAYA COOPERATIVE BANK LIMITED</option><option value='THE ROYAL BANK OF SCOTLAND N V'>THE ROYAL BANK OF SCOTLAND N V</option><option value='ABU DHABI COMMERCIAL BANK'>ABU DHABI COMMERCIAL BANK</option><option value='THE AKOLA DISTRICT CENTRAL COOPERATIVE BANK'>THE AKOLA DISTRICT CENTRAL COOPERATIVE BANK</option><option value='AKOLA JANATA COMMERCIAL COOPERATIVE BANK'>AKOLA JANATA COMMERCIAL COOPERATIVE BANK</option><option value='ALLAHABAD BANK'>ALLAHABAD BANK</option><option value='AHMEDABAD MERCANTILE COOPERATIVE BANK'>AHMEDABAD MERCANTILE COOPERATIVE BANK</option><option value='ANDHRA BANK'>ANDHRA BANK</option><option value='AUSTRALIA AND NEW ZEALAND BANKING GROUP LIMITED'>AUSTRALIA AND NEW ZEALAND BANKING GROUP LIMITED</option><option value='THE ANDHRA PRADESH STATE COOPERATIVE BANK LIMITED'>THE ANDHRA PRADESH STATE COOPERATIVE BANK LIMITED</option><option value='ANDHRA PRAGATHI GRAMEENA BANK'>ANDHRA PRAGATHI GRAMEENA BANK</option><option value='THE A.P. MAHESH COOPERATIVE URBAN BANK LIMITED'>THE A.P. MAHESH COOPERATIVE URBAN BANK LIMITED</option><option value='APNA SAHAKARI BANK LIMITED'>APNA SAHAKARI BANK LIMITED</option><option value='ALMORA URBAN COOPERATIVE BANK LIMITED'>ALMORA URBAN COOPERATIVE BANK LIMITED</option><option value='BASSEIN CATHOLIC COOPERATIVE BANK LIMITED'>BASSEIN CATHOLIC COOPERATIVE BANK LIMITED</option><option value='BANK OF BARODA'>BANK OF BARODA</option><option value='BARCLAYS BANK'>BARCLAYS BANK</option><option value='BANK OF BAHARAIN AND KUWAIT BSC'>BANK OF BAHARAIN AND KUWAIT BSC</option><option value='BHARAT COOPERATIVE BANK MUMBAI LIMITED'>BHARAT COOPERATIVE BANK MUMBAI LIMITED</option><option value='BANK OF CEYLON'>BANK OF CEYLON</option><option value='BANDHAN BANK LIMITED'>BANDHAN BANK LIMITED</option><option value='DENA BANK'>DENA BANK</option><option value='BANK OF INDIA'>BANK OF INDIA</option><option value='BHARATIYA MAHILA BANK LIMITED'>BHARATIYA MAHILA BANK LIMITED</option><option value='B N P PARIBAS'>B N P PARIBAS</option><option value='BANK OF AMERICA'>BANK OF AMERICA</option><option value='BANK OF TOKYO MITSUBISHI LIMITED'>BANK OF TOKYO MITSUBISHI LIMITED</option><option value='CENTRAL BANK OF INDIA'>CENTRAL BANK OF INDIA</option><option value='CITIZEN CREDIT COOPERATIVE BANK LIMITED'>CITIZEN CREDIT COOPERATIVE BANK LIMITED</option><option value='JP MORGAN BANK'>JP MORGAN BANK</option><option value='CITI BANK'>CITI BANK</option><option value='CITY UNION BANK LIMITED'>CITY UNION BANK LIMITED</option><option value='CAPITAL LOCAL AREA BANK LIMITED'>CAPITAL LOCAL AREA BANK LIMITED</option><option value='CANARA BANK'>CANARA BANK</option><option value='CORPORATION BANK'>CORPORATION BANK</option><option value='THE COSMOS CO OPERATIVE BANK LIMITED'>THE COSMOS CO OPERATIVE BANK LIMITED</option><option value='CREDIT SUISEE AG'>CREDIT SUISEE AG</option><option value='CREDIT AGRICOLE CORPORATE AND INVESTMENT BANK CAL'>CREDIT AGRICOLE CORPORATE AND INVESTMENT BANK CAL</option><option value='SHRI CHHATRAPATI RAJASHRI SHAHU URBAN COOPERATIVE'>SHRI CHHATRAPATI RAJASHRI SHAHU URBAN COOPERATIVE</option><option value='CATHOLIC SYRIAN BANK LIMITED'>CATHOLIC SYRIAN BANK LIMITED</option><option value='COMMONWEALTH BANK OF AUSTRALIA'>COMMONWEALTH BANK OF AUSTRALIA</option><option value='CHINATRUST COMMERCIAL BANK LIMITED'>CHINATRUST COMMERCIAL BANK LIMITED</option><option value='DEVELOPMENT BANK OF SINGAPORE'>DEVELOPMENT BANK OF SINGAPORE</option><option value='DCB BANK LIMITED'>DCB BANK LIMITED</option><option value='DEUSTCHE BANK'>DEUSTCHE BANK</option><option value='DEPOSIT INSURANCE AND CREDIT GUARANTEE CORPORATIO'>DEPOSIT INSURANCE AND CREDIT GUARANTEE CORPORATIO</option><option value='THE DELHI STATE COOPERATIVE BANK LIMITED'>THE DELHI STATE COOPERATIVE BANK LIMITED</option><option value='DHANALAKSHMI BANK'>DHANALAKSHMI BANK</option><option value='DOMBIVLI NAGARI SAHAKARI BANK LIMITED'>DOMBIVLI NAGARI SAHAKARI BANK LIMITED</option><option value='DOHA BANK QSC'>DOHA BANK QSC</option><option value='DOHA BANK'>DOHA BANK</option><option value='EXPORT IMPORT BANK OF INDIA'>EXPORT IMPORT BANK OF INDIA</option><option value='FEDERAL BANK'>FEDERAL BANK</option><option value='FIRSTRAND BANK LIMITED'>FIRSTRAND BANK LIMITED</option><option value='THE GREATER BOMBAY COOPERATIVE BANK LIMITED'>THE GREATER BOMBAY COOPERATIVE BANK LIMITED</option><option value='THE GADCHIROLI DISTRICT CENTRAL COOPERATIVE BANK '>THE GADCHIROLI DISTRICT CENTRAL COOPERATIVE BANK </option><option value='THE GUJARAT STATE COOPERATIVE BANK LIMITED'>THE GUJARAT STATE COOPERATIVE BANK LIMITED</option><option value='THE HASTI COOP BANK LTD'>THE HASTI COOP BANK LTD</option><option value='HDFC BANK'>HDFC BANK</option><option value='HSBC BANK'>HSBC BANK</option><option value='WOORI BANK'>WOORI BANK</option><option value='BANK INTERNASIONAL INDONESIA'>BANK INTERNASIONAL INDONESIA</option><option value='IDBI BANK'>IDBI BANK</option><option value='INDUSTRIAL BANK OF KOREA'>INDUSTRIAL BANK OF KOREA</option><option value='INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED'>INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED</option><option value='ICICI BANK LIMITED'>ICICI BANK LIMITED</option><option value='IDFC BANK LIMITED'>IDFC BANK LIMITED</option><option value='INDIAN BANK'>INDIAN BANK</option><option value='INDUSIND BANK'>INDUSIND BANK</option><option value='INDIAN OVERSEAS BANK'>INDIAN OVERSEAS BANK</option><option value='JAMMU AND KASHMIR BANK LIMITED'>JAMMU AND KASHMIR BANK LIMITED</option><option value='JANASEVA SAHAKARI BANK LIMITED'>JANASEVA SAHAKARI BANK LIMITED</option><option value='JANASEVA SAHAKARI BANK BORIVLI LIMITED'>JANASEVA SAHAKARI BANK BORIVLI LIMITED</option><option value='JALGAON JANATA SAHAKARI BANK LIMITED'>JALGAON JANATA SAHAKARI BANK LIMITED</option><option value='THE JALGAON PEOPELS COOPERATIVE BANK LIMITED'>THE JALGAON PEOPELS COOPERATIVE BANK LIMITED</option><option value='JANAKALYAN SAHAKARI BANK LIMITED'>JANAKALYAN SAHAKARI BANK LIMITED</option><option value='JANATA SAHAKARI BANK LIMITED'>JANATA SAHAKARI BANK LIMITED</option><option value='THE KANGRA CENTRAL COOPERATIVE BANK LIMITED'>THE KANGRA CENTRAL COOPERATIVE BANK LIMITED</option><option value='KALLAPPANNA AWADE ICHALKARANJI JANATA SAHAKARI BA'>KALLAPPANNA AWADE ICHALKARANJI JANATA SAHAKARI BA</option><option value='THE KANGRA COOPERATIVE BANK LIMITED'>THE KANGRA COOPERATIVE BANK LIMITED</option><option value='KARNATAKA BANK LIMITED'>KARNATAKA BANK LIMITED</option><option value='KAPOL COOPERATIVE BANK LIMITED'>KAPOL COOPERATIVE BANK LIMITED</option><option value='KALUPUR COMMERCIAL COOPERATIVE BANK'>KALUPUR COMMERCIAL COOPERATIVE BANK</option><option value='KALYAN JANATA SAHAKARI BANK'>KALYAN JANATA SAHAKARI BANK</option><option value='KOTAK MAHINDRA BANK LIMITED'>KOTAK MAHINDRA BANK LIMITED</option><option value='KERALA GRAMIN BANK'>KERALA GRAMIN BANK</option><option value='THE KURMANCHAL NAGAR SAHAKARI BANK LIMITED'>THE KURMANCHAL NAGAR SAHAKARI BANK LIMITED</option><option value='THE KARNATAKA STATE COOPERATIVE APEX BANK LIMITE'>THE KARNATAKA STATE COOPERATIVE APEX BANK LIMITE</option><option value='THE KARAD URBAN COOPERATIVE BANK LIMITED'>THE KARAD URBAN COOPERATIVE BANK LIMITED</option><option value='KARUR VYSYA BANK'>KARUR VYSYA BANK</option><option value='KARNATAKA VIKAS GRAMEENA BANK'>KARNATAKA VIKAS GRAMEENA BANK</option><option value='LAXMI VILAS BANK'>LAXMI VILAS BANK</option><option value='BANK OF MAHARASHTRA'>BANK OF MAHARASHTRA</option><option value='MAHANAGAR COOPERATIVE BANK'>MAHANAGAR COOPERATIVE BANK</option><option value='THE MUMBAI DISTRICT CENTRAL COOPERATIVE BANK LIMI'>THE MUMBAI DISTRICT CENTRAL COOPERATIVE BANK LIMI</option><option value='MIZUHO CORPORATE BANK LIMITED'>MIZUHO CORPORATE BANK LIMITED</option><option value='MAHARASHTRA STATE COOPERATIVE BANK'>MAHARASHTRA STATE COOPERATIVE BANK</option><option value='MASHREQBANK PSC'>MASHREQBANK PSC</option><option value='THE MEHSANA URBAN COOPERATIVE BANK'>THE MEHSANA URBAN COOPERATIVE BANK</option><option value='THE MUNICIPAL COOPERATIVE BANK LIMITED'>THE MUNICIPAL COOPERATIVE BANK LIMITED</option><option value='NATIONAL AUSTRALIA BANK LIMITED'>NATIONAL AUSTRALIA BANK LIMITED</option><option value='NATIONAL BANK OF ABU DHABI PJSC'>NATIONAL BANK OF ABU DHABI PJSC</option><option value='NAGPUR NAGARIK SAHAKARI BANK LIMITED'>NAGPUR NAGARIK SAHAKARI BANK LIMITED</option><option value='NEW INDIA COOPERATIVE BANK LIMITED'>NEW INDIA COOPERATIVE BANK LIMITED</option><option value='NKGSB COOPERATIVE BANK LIMITED'>NKGSB COOPERATIVE BANK LIMITED</option><option value='THE NASIK MERCHANTS COOPERATIVE BANK LIMITED'>THE NASIK MERCHANTS COOPERATIVE BANK LIMITED</option><option value='NUTAN NAGARIK SAHAKARI BANK LIMITED'>NUTAN NAGARIK SAHAKARI BANK LIMITED</option><option value='THE BANK OF NOVA SCOTIA'>THE BANK OF NOVA SCOTIA</option><option value='THE NAINITAL BANK LIMITED'>THE NAINITAL BANK LIMITED</option><option value='NAGAR URBAN CO OPERATIVE BANK'>NAGAR URBAN CO OPERATIVE BANK</option><option value='ORIENTAL BANK OF COMMERCE'>ORIENTAL BANK OF COMMERCE</option><option value='G P PARSIK BANK'>G P PARSIK BANK</option><option value='PRAGATHI KRISHNA GRAMIN BANK'>PRAGATHI KRISHNA GRAMIN BANK</option><option value='PUNJAB AND MAHARSHTRA COOPERATIVE BANK'>PUNJAB AND MAHARSHTRA COOPERATIVE BANK</option><option value='PRIME COOPERATIVE BANK LIMITED'>PRIME COOPERATIVE BANK LIMITED</option><option value='PRATHAMA BANK'>PRATHAMA BANK</option><option value='PUNJAB AND SIND BANK'>PUNJAB AND SIND BANK</option><option value='PUNJAB NATIONAL BANK'>PUNJAB NATIONAL BANK</option><option value='RABOBANK INTERNATIONAL'>RABOBANK INTERNATIONAL</option><option value='RATNAKAR BANK LIMITED'>RATNAKAR BANK LIMITED</option><option value='RESERVE BANK OF INDIA'>RESERVE BANK OF INDIA</option><option value='RAJKOT NAGRIK SAHAKARI BANK LIMITED'>RAJKOT NAGRIK SAHAKARI BANK LIMITED</option><option value='RAJGURUNAGAR SAHAKARI BANK LIMITED'>RAJGURUNAGAR SAHAKARI BANK LIMITED</option><option value='THE RAJASTHAN STATE COOPERATIVE BANK LIMITED'>THE RAJASTHAN STATE COOPERATIVE BANK LIMITED</option><option value='SBER BANK'>SBER BANK</option><option value='SAHEBRAO DESHMUKH COOPERATIVE BANK LIMITED'>SAHEBRAO DESHMUKH COOPERATIVE BANK LIMITED</option><option value='STATE BANK OF BIKANER AND JAIPUR'>STATE BANK OF BIKANER AND JAIPUR</option><option value='STATE BANK OF HYDERABAD'>STATE BANK OF HYDERABAD</option><option value='STATE BANK OF INDIA'>STATE BANK OF INDIA</option><option value='STATE BANK OF MYSORE'>STATE BANK OF MYSORE</option><option value='STATE BANK OF TRAVANCORE'>STATE BANK OF TRAVANCORE</option><option value='STANDARD CHARTERED BANK'>STANDARD CHARTERED BANK</option><option value='THE SURAT DISTRICT COOPERATIVE BANK LIMITED'>THE SURAT DISTRICT COOPERATIVE BANK LIMITED</option><option value='SHINHAN BANK'>SHINHAN BANK</option><option value='SOUTH INDIAN BANK'>SOUTH INDIAN BANK</option><option value='SOLAPUR JANATA SAHAKARI BANK LIMITED'>SOLAPUR JANATA SAHAKARI BANK LIMITED</option><option value='SHIKSHAK SAHAKARI BANK LIMITED'>SHIKSHAK SAHAKARI BANK LIMITED</option><option value='SUMITOMO MITSUI BANKING CORPORATION'>SUMITOMO MITSUI BANKING CORPORATION</option><option value='SOCIETE GENERALE'>SOCIETE GENERALE</option><option value='THE SURATH PEOPLES COOPERATIVE BANK LIMITED'>THE SURATH PEOPLES COOPERATIVE BANK LIMITED</option><option value='SARASWAT COOPERATIVE BANK LIMITED'>SARASWAT COOPERATIVE BANK LIMITED</option><option value='STATE BANK OF PATIALA'>STATE BANK OF PATIALA</option><option value='SBM BANK MAURITIUS LIMITED'>SBM BANK MAURITIUS LIMITED</option><option value='SURAT NATIONAL COOPERATIVE BANK LIMITED'>SURAT NATIONAL COOPERATIVE BANK LIMITED</option><option value='SUTEX COOPERATIVE BANK LIMITED'>SUTEX COOPERATIVE BANK LIMITED</option><option value='THE SEVA VIKAS COOPERATIVE BANK LIMITED'>THE SEVA VIKAS COOPERATIVE BANK LIMITED</option><option value='THE SHAMRAO VITHAL COOPERATIVE BANK'>THE SHAMRAO VITHAL COOPERATIVE BANK</option><option value='SYNDICATE BANK'>SYNDICATE BANK</option><option value='THE THANE BHARAT SAHAKARI BANK LIMITED'>THE THANE BHARAT SAHAKARI BANK LIMITED</option><option value='THE THANE DISTRICT CENTRAL COOPERATIVE BANK LIMIT'>THE THANE DISTRICT CENTRAL COOPERATIVE BANK LIMIT</option><option value='TUMKUR GRAIN MERCHANTS COOPERATIVE BANK LIMITED'>TUMKUR GRAIN MERCHANTS COOPERATIVE BANK LIMITED</option><option value='TJSB SAHAKARI BANK LTD'>TJSB SAHAKARI BANK LTD</option><option value='TJSB SAHAKARI BANK LIMITED'>TJSB SAHAKARI BANK LIMITED</option><option value='TAMILNAD MERCANTILE BANK LIMITED'>TAMILNAD MERCANTILE BANK LIMITED</option><option value='THE TAMIL NADU STATE APEX COOPERATIVE BANK'>THE TAMIL NADU STATE APEX COOPERATIVE BANK</option><option value='UNION BANK OF INDIA'>UNION BANK OF INDIA</option><option value='UCO BANK'>UCO BANK</option><option value='UNITED OVERSEAS BANK LIMITED'>UNITED OVERSEAS BANK LIMITED</option><option value='UNITED BANK OF INDIA'>UNITED BANK OF INDIA</option><option value='AXIS BANK'>AXIS BANK</option><option value='THE VARACHHA COOPERATIVE BANK LIMITED'>THE VARACHHA COOPERATIVE BANK LIMITED</option><option value='VIJAYA BANK'>VIJAYA BANK</option><option value='THE VISHWESHWAR SAHAKARI BANK LIMITED'>THE VISHWESHWAR SAHAKARI BANK LIMITED</option><option value='VASAI VIKAS SAHAKARI BANK LIMITED'>VASAI VIKAS SAHAKARI BANK LIMITED</option><option value='ING VYSYA BANK'>ING VYSYA BANK</option><option value='THE WEST BENGAL STATE COOPERATIVE BANK'>THE WEST BENGAL STATE COOPERATIVE BANK</option><option value='WESTPAC BANKING CORPORATION'>WESTPAC BANKING CORPORATION</option><option value='YES BANK'>YES BANK</option><option value='THE ZOROASTRIAN COOPERATIVE BANK LIMITED'>THE ZOROASTRIAN COOPERATIVE BANK LIMITED</option><option value='ZILA SAHAKRI BANK LIMITED GHAZIABAD'>ZILA SAHAKRI BANK LIMITED GHAZIABAD</option>
+                          </select>
+                    <small id="emailHelp" class="form-text text-muted">Select Bank From The Drop Down.</small>
+                </div>
+                <div class="form-group">
+                    <label for="type2_state_names">State</label>
+                    <select class="form-control" id="type2_state_names">
+                            <option value=MAHARASHTRA>MAHARASHTRA</option><option value=GUJARAT>GUJARAT</option><br><option value=KARNATAKA>KARNATAKA</option><br><option value=WEST BENGAL>WEST BENGAL</option><br><option value=DELHI>DELHI</option><br><option value=TAMIL NADU>TAMIL NADU</option><br><option value=ANDHRA PRADESH>ANDHRA PRADESH</option><br><option value=HARYANA>HARYANA</option><br><option value=UTTAR PRADESH>UTTAR PRADESH</option><br><option value=RAJASTHAN>RAJASTHAN</option><br><option value=PUNJAB>PUNJAB</option><br><option value=MADHYA PRADESH>MADHYA PRADESH</option><br><option value=ASSAM>ASSAM</option><br><option value=BIHAR>BIHAR</option><br><option value=JHARKHAND>JHARKHAND</option><br><option value=NAGALAND>NAGALAND</option><br><option value=ODISHA>ODISHA</option><br><option value=UTTARAKHAND>UTTARAKHAND</option><br><option value=CHANDIGARH>CHANDIGARH</option><br><option value=KERALA>KERALA</option><br><option value=MEGHALAYA>MEGHALAYA</option><br><option value=JAMMU AND KASHMIR>JAMMU AND KASHMIR</option><br><option value=TRIPURA>TRIPURA</option><br><option value=MANIPUR>MANIPUR</option><br><option value=HIMACHAL PRADESH>HIMACHAL PRADESH</option><br><option value=GOA>GOA</option><br><option value=PUDUCHERRY>PUDUCHERRY</option><br><option value=ANDAMAN AND NICOBAR ISLAND>ANDAMAN AND NICOBAR ISLAND</option><br><option value=SIKKIM>SIKKIM</option><br><option value=ARUNACHAL PRADESH>ARUNACHAL PRADESH</option><br><option value=TELANGANA>TELANGANA</option><br><option value=CHHATTISGARH>CHHATTISGARH</option><br><option value=DADRA AND NAGAR HAVELI>DADRA AND NAGAR HAVELI</option><br><option value=MIZORAM>MIZORAM</option><br><option value=DAMAN AND DIU>DAMAN AND DIU</option><br><option value=MH>MH</option><br><option value=KARNATAKA>KARNATAKA</option><br><option value=LAKSHADWEEP>LAKSHADWEEP</option>
+                        
+                          </select>
+                          <small id="emailHelp" class="form-text text-muted">Select state From The Drop Down.</small>
+                </div>
+
+                
+
+                <button type="submit" id="type2_submit_one" class="btn btn-primary">Get City List</button>
+                <div id="first_loader" class="loader" style="margin-left: 30%; display:none;"></div> 
+                <div id="citySelectArea" class="form-group" style="display:none">
+                        <label for="type2_state_names">City</label>
+                        <select class="form-control" id="type2_city_names">
+                            
+                        </select>
+                              <small id="emailHelp" class="form-text text-muted">Select city From The Drop Down.</small>
+               
+                <button style="margin-top:10px;" type="submit" id="type2_submit_two" class="btn btn-primary">Show all Branches of the City</button>
+                <div id="second_loader" class="loader" style="margin-left: 30%; display:none;"></div>       
+                            </div>
+
+                            <div class="col-sm-12" id="type2_section_result" style="display:none">
+                                    <div id="multiple_branches" style="overflow-y: auto; height:400px;">
+                                       
+                    
+                                    </div>
+                    
+                                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            console.log("document loaded completely");
+            $("#type1").click(function () {
+                $("#type1_section").css("display", "block");
+                $("#type2_section").css("display", "none");
+            });
+            $("#type2").click(function () {
+                $("#type1_section").css("display", "none");
+                $("#type2_section").css("display", "block");
+            });
+
+            //bank search through IFSC code
+            $("#ifsc_bank_search").click(function () {
+                $("#type1_section_result").css("display","none");
+                var ifsc_code = $("#ifsc_code").val();
+
+                if (ifsc_code != "") {
+                    $(".loader").css("display","block");
+                    $.post("http://backrest.in/fyle/api/getDetails.php",
+                        {
+                            ifsc: ifsc_code
+                        },
+                        function (data, status) {
+                            //alert("Data: " + data + "\nStatus: " + status);
+                            
+                            if(data!="0 results"){
+                                var response=JSON.parse(data);
+                                console.log(response)
+                                $(".loader").css("display","none");
+                                $("#type1_section_result").css("display","block");
+                                $("#type1_bank_name_result").val(response[0].bank_name);
+                                $("#type1_ifsc_result").val(response[0].bank_ifsc);
+                                $("#type1_branch_result").val(response[0].bank_branch);
+                                $("#type1_address_result").val(response[0].bank_address);
+                                $("#type1_city_result").val(response[0].bank_city);
+                                $("#type1_district_result").val(response[0].bank_district);
+                                $("#type1_state_result").val(response[0].bank_state);
+                            }
+                            else
+                            {
+                                alert("Not Found");
+                                $(".loader").css("display","none");
+                            }
+                        });
+                }
+                else {
+                    alert("Please Enter IFSC Code");
+                }
+
+            });
+
+            $("#type2_submit_one").click(function(){
+                $("#first_loader").css("display","block");
+                $(".city_list").remove();
+                var state_name=$("#type2_state_names").val();
+                var bank_name=$("#type2_bank_names").val();
+                console.log("state="+state_name+" Bank Name="+bank_name);
+                $.post("http://backrest.in/fyle/api/getCity.php",
+                        {
+                            bank_state: state_name,
+                            bank_name:bank_name
+                        },
+                        function (data, status) {
+                            //alert("Data: " + data + "\nStatus: " + status);
+                            
+                            if(data!="0 results"){
+                                $("#citySelectArea").css("display","block");
+                              var response=JSON.parse(data);
+                              console.log(response);
+                              $("#first_loader").css("display","none");
+                               for(var i=0;i<response.length;i++)
+                               {
+                                   $("#type2_city_names").append("<option class='city_list' value='"+response[i].bank_city+"'>"+response[i].bank_city+"</option>");
+                               }
+
+                              
+                            }
+                            else
+                            {
+                                alert("Not Found");
+                               // $(".loader").css("display","none");
+                            }
+                        });
+
+            });
+
+            $("#type2_submit_two").click(function(){
+            $("#type2_section_result").css("display","none");
+            $("#second_loader").css("display","block");
+            $(".branches").remove();
+
+                var bank_name=$("#type2_bank_names").val();
+                var bank_state=$("#type2_state_names").val();
+                var bank_city=$("#type2_city_names").val();
+                console.log("bname="+bank_name+" bstate="+bank_state+" bcity="+bank_city);
+
+                 $.post("http://backrest.in/fyle/api/getBankDetails.php",
+                        {
+                            bank_state: bank_state,
+                            bank_name:bank_name,
+                            bank_city:bank_city
+                        },
+                        function (data, status) {
+                            //alert("Data: " + data + "\nStatus: " + status);
+                            
+                            if(data!="0 results"){
+                               
+                              var response=JSON.parse(data);
+                              console.log(response);
+                              $("#type2_section_result").css("display","block");
+                              $("#second_loader").css("display","none");
+
+                              for(var i=0;i<response.length;i++)
+                              {
+                                  $("#multiple_branches").append("<div class='card branches'><div class='card-body'><p><small>Bank Name</small></br><b>"+response[0].bank_name+"</b></p><p><small>Bank IFSC Code</small></br>"+response[0].bank_ifsc+"</p><p><small>Branch Name</small></br>"+response[0].bank_branch+"</p><p><small>Bank Address</small></br>"+response[0].bank_address+"</p><p><small>District</small></br>"+response[0].bank_district+"</p><p><small>City</small></br>"+response[0].bank_city+"</p><p><small>State</small></br>"+response[0].bank_state+"</p></div></div>");
+                              }
+                              
+                                $("#type2_bank_name_result").val(response[0].bank_name);
+                                $("#type2_ifsc_result").val(response[0].bank_ifsc);
+                                $("#type2_branch_result").val(response[0].bank_branch);
+                                $("#type2_address_result").val(response[0].bank_address);
+                                $("#type2_city_result").val(response[0].bank_city);
+                                $("#type2_district_result").val(response[0].bank_district);
+                                $("#type2_state_result").val(response[0].bank_state);
+
+                              
+                            }
+                            else
+                            {
+                                alert("Not Found");
+                               // $(".loader").css("display","none");
+                            }
+                        });
+
+
+            });
+        });
+    </script>
+</body>
+
+</html>
